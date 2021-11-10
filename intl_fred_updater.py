@@ -1,6 +1,5 @@
 import pandas as pd
-import requests, time
-from bs4 import BeautifulSoup
+import time
 from fredapi import Fred
 import conn_db, helper
 
@@ -18,7 +17,7 @@ def _get_meta_date(index_id):
 
 def _get_fred_data(stat_id):
 	'''
-	stat_id의 날짜별 값 가져오기
+	단일 stat_id의 날짜별 값 가져오기
 	'''
 	df = pd.DataFrame(fred.get_series(stat_id))
 	df.index.name = 'dt'  # 날짜열 지정
